@@ -325,11 +325,23 @@ public class DefaultImportRegistry implements ImportRegistry {
                     (lookup, props) -> new MountainBikePriorityParser(lookup),
                     VehicleSpeed.key("mtb"), BikeNetwork.KEY
             );
+/* ============================================================================================== */
         else if (Cycleway.KEY.equals(name))
             return ImportUnit.create(name, props -> Cycleway.create(),
                     (lookup, props) -> new OSMCyclewayParser(
                             lookup.getEnumEncodedValue(Cycleway.KEY, Cycleway.class))
             );
+        else if (Bicycle.KEY.equals(name))
+            return ImportUnit.create(name, props -> Bicycle.create(),
+                    (lookup, props) -> new OSMBicycleParser(
+                            lookup.getEnumEncodedValue(Bicycle.KEY, Bicycle.class))
+            );
+        else if (Foot.KEY.equals(name))
+            return ImportUnit.create(name, props -> Foot.create(),
+                    (lookup, props) -> new OSMFootParser(
+                            lookup.getEnumEncodedValue(Foot.KEY, Foot.class))
+            );
+/* ============================================================================================== */
         return null;
     }
 }
