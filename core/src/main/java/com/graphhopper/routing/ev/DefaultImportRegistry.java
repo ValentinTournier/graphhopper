@@ -341,6 +341,11 @@ public class DefaultImportRegistry implements ImportRegistry {
                     (lookup, props) -> new OSMFootParser(
                             lookup.getEnumEncodedValue(Foot.KEY, Foot.class))
             );
+        else if (Segregated.KEY.equals(name))
+            return ImportUnit.create(name, props -> Segregated.create(),
+                    (lookup, props) -> new OSMSegregatedParser(
+                            lookup.getEnumEncodedValue(Segregated.KEY, Segregated.class))
+            );
 /* ============================================================================================== */
         return null;
     }
