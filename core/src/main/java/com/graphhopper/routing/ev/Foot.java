@@ -23,7 +23,7 @@ import com.graphhopper.util.Helper;
  * This enum defines the access restriction for pedestrians of an edge.
  */
 public enum Foot {
-    NO, PRIVATE, DISMOUNT, USE_SIDEPATH, DESTINATION, DISCOURAGED, SEPARATE, NONE, PERMISSIVE, YES, DESIGNATED, OTHER;
+    NO, PRIVATE, USE_SIDEPATH, DESTINATION, NONE, PERMISSIVE, YES, DESIGNATED, OTHER;
 
     public static final String KEY = "foot";
 

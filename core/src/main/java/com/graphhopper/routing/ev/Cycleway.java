@@ -23,7 +23,7 @@ import com.graphhopper.util.Helper;
  * This enum defines the road cyclcability of an edge.
  */
 public enum Cycleway  {
-    NONE, OPPOSITE, SHARED, SHARE_BUSWAY, OPPOSITE_SHARE_BUSWAY, SHARED_LANE, OPPOSITE_SHARED_LANE, LANE, OPPOSITE_LANE, TRACK, OPPOSITE_TRACK, CROSSING, ASL, OTHER;
+    NONE, OPPOSITE, SHARED, SHARE_BUSWAY, OPPOSITE_SHARE_BUSWAY, SHARED_LANE, OPPOSITE_SHARED_LANE, LANE, OPPOSITE_LANE, TRACK, OPPOSITE_TRACK, OTHER;
 
     public static final String KEY = "cycleway";
 

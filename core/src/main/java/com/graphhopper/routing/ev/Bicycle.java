@@ -23,7 +23,7 @@ import com.graphhopper.util.Helper;
  * This enum defines the access restriction for bicycle of an edge.
  */
 public enum Bicycle {
-    NO, PRIVATE, USE_SIDEPATH, DESTINATION, NONE, PERMISSIVE, YES, DESIGNATED, OTHER;
+    NO, PRIVATE, USE_SIDEPATH, DESTINATION, DISMOUNT, DISCOURAGED, NONE, PERMISSIVE, YES, DESIGNATED, OTHER;
 
     public static final String KEY = "bicycle";
 
