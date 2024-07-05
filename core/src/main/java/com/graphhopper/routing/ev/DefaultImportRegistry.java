@@ -331,6 +331,21 @@ public class DefaultImportRegistry implements ImportRegistry {
                     (lookup, props) -> new OSMCyclewayParser(
                             lookup.getEnumEncodedValue(Cycleway.KEY, Cycleway.class))
             );
+        else if (CyclewayBoth.KEY.equals(name))
+            return ImportUnit.create(name, props -> CyclewayBoth.create(),
+                    (lookup, props) -> new OSMCyclewayBothParser(
+                            lookup.getEnumEncodedValue(CyclewayBoth.KEY, CyclewayBoth.class))
+            );
+        else if (CyclewayRight.KEY.equals(name))
+            return ImportUnit.create(name, props -> CyclewayRight.create(),
+                    (lookup, props) -> new OSMCyclewayRightParser(
+                            lookup.getEnumEncodedValue(CyclewayRight.KEY, CyclewayRight.class))
+            );
+        else if (CyclewayLeft.KEY.equals(name))
+            return ImportUnit.create(name, props -> CyclewayLeft.create(),
+                    (lookup, props) -> new OSMCyclewayLeftParser(
+                            lookup.getEnumEncodedValue(CyclewayLeft.KEY, CyclewayLeft.class))
+            );
         else if (Bicycle.KEY.equals(name))
             return ImportUnit.create(name, props -> Bicycle.create(),
                     (lookup, props) -> new OSMBicycleParser(

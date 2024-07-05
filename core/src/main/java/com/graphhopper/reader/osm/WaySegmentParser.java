@@ -56,7 +56,7 @@ import static com.graphhopper.util.Helper.nf;
  * <p>
  * The main difficulty is that the OSM ID range is very large (64bit integers) and to be able to provide the full
  * node information for each segment we have to efficiently store the node data temporarily. This is addressed by
- * {@link OSMNodeData}.
+ * {@link OSMNodeData}.yio
  */
 public class WaySegmentParser {
     private static final Logger LOGGER = LoggerFactory.getLogger(WaySegmentParser.class);

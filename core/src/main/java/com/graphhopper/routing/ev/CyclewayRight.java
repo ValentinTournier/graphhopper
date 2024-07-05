@@ -22,23 +22,23 @@ import com.graphhopper.util.Helper;
 /**
  * This enum defines the road cyclcability of an edge.
  */
-public enum Cycleway  {
+public enum CyclewayRight {
     NONE, OPPOSITE, SHARED, SHARE_BUSWAY, OPPOSITE_SHARE_BUSWAY, SHARED_LANE, OPPOSITE_SHARED_LANE, LANE, OPPOSITE_LANE, TRACK, OPPOSITE_TRACK, CROSSING, OTHER;
 
-    public static final String KEY = "cycleway";
+    public static final String KEY = "cycleway_right";
 
-    public static EnumEncodedValue<Cycleway> create() {
-        return new EnumEncodedValue<>(KEY, Cycleway.class);
+    public static EnumEncodedValue<CyclewayRight> create() {
+        return new EnumEncodedValue<>(KEY, CyclewayRight.class);
     }
 
     @Override
     public String toString() { return Helper.toLowerCase(super.toString()); }
 
-    public static Cycleway find(String name) {
+    public static CyclewayRight find(String name) {
         if (Helper.isEmpty(name))
             return NONE;
         try {
-            return Cycleway.valueOf(Helper.toUpperCase(name));
+            return CyclewayRight.valueOf(Helper.toUpperCase(name));
         } catch (IllegalArgumentException ex) {
             return OTHER;
         }
