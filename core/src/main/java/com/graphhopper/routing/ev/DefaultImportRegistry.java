@@ -311,19 +311,19 @@ public class DefaultImportRegistry implements ImportRegistry {
                     RouteNetwork.key("foot")
             );
         else if (VehiclePriority.key("bike").equals(name))
-            return ImportUnit.create(name, props -> VehiclePriority.create("bike", 4, PriorityCode.getFactor(1), false),
+            return ImportUnit.create(name, props -> VehiclePriority.create("bike", 4, PriorityCode.getFactor(1), true),
                     (lookup, props) -> new BikePriorityParser(lookup),
-                    VehicleSpeed.key("bike"), BikeNetwork.KEY
+                    VehicleSpeed.key("bike"), BikeNetwork.KEY, "road_type"
             );
         else if (VehiclePriority.key("racingbike").equals(name))
-            return ImportUnit.create(name, props -> VehiclePriority.create("racingbike", 4, PriorityCode.getFactor(1), false),
+            return ImportUnit.create(name, props -> VehiclePriority.create("racingbike", 4, PriorityCode.getFactor(1), true),
                     (lookup, props) -> new RacingBikePriorityParser(lookup),
-                    VehicleSpeed.key("racingbike"), BikeNetwork.KEY
+                    VehicleSpeed.key("racingbike"), BikeNetwork.KEY, "road_type"
             );
         else if (VehiclePriority.key("mtb").equals(name))
-            return ImportUnit.create(name, props -> VehiclePriority.create("mtb", 4, PriorityCode.getFactor(1), false),
+            return ImportUnit.create(name, props -> VehiclePriority.create("mtb", 4, PriorityCode.getFactor(1), true),
                     (lookup, props) -> new MountainBikePriorityParser(lookup),
-                    VehicleSpeed.key("mtb"), BikeNetwork.KEY
+                    VehicleSpeed.key("mtb"), BikeNetwork.KEY, "road_type"
             );
 /* ============================================================================================== */
         else if (Cycleway.KEY.equals(name))
@@ -360,6 +360,11 @@ public class DefaultImportRegistry implements ImportRegistry {
             return ImportUnit.create(name, props -> Segregated.create(),
                     (lookup, props) -> new OSMSegregatedParser(
                             lookup.getEnumEncodedValue(Segregated.KEY, Segregated.class))
+            );
+        else if (RoadType.KEY.equals(name))
+            return ImportUnit.create(name, props -> RoadType.create(),
+                    (lookup, props) -> new RoadTypeParser(
+                            lookup.getEnumEncodedValue(RoadType.KEY, RoadType.class))
             );
 /* ============================================================================================== */
         return null;

@@ -48,15 +48,17 @@ class TagParsingTest {
         DecimalEncodedValue bike2SpeedEnc = VehicleSpeed.create("bike2", 4, 2, false);
         DecimalEncodedValue bike2PriorityEnc = VehiclePriority.create("bike2", 4, PriorityCode.getFactor(1), false);
         EnumEncodedValue<RouteNetwork> bikeNetworkEnc = RouteNetwork.create(BikeNetwork.KEY);
+        EnumEncodedValue<RoadType> roadTypeEnc = RoadType.create();
         EncodingManager em = EncodingManager.start()
                 .add(bike1AccessEnc).add(bike1SpeedEnc).add(bike1PriorityEnc)
                 .add(bike2AccessEnc).add(bike2SpeedEnc).add(bike2PriorityEnc)
                 .add(bikeNetworkEnc)
+                .add(roadTypeEnc)
                 .add(Smoothness.create())
                 .add(RoadClass.create())
                 .build();
-        BikePriorityParser bike1Parser = new BikePriorityParser(bike1PriorityEnc, bike1SpeedEnc, bikeNetworkEnc);
-        BikePriorityParser bike2Parser = new BikePriorityParser(bike2PriorityEnc, bike2SpeedEnc, bikeNetworkEnc) {
+        BikePriorityParser bike1Parser = new BikePriorityParser(bike1PriorityEnc, bike1SpeedEnc, bikeNetworkEnc, roadTypeEnc);
+        BikePriorityParser bike2Parser = new BikePriorityParser(bike2PriorityEnc, bike2SpeedEnc, bikeNetworkEnc, roadTypeEnc) {
             @Override
             public void handleWayTags(int edgeId, EdgeIntAccess intAccess, ReaderWay way, IntsRef relTags) {
                 // accept less relations

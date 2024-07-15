@@ -14,12 +14,14 @@ public class RacingBikePriorityParser extends BikeCommonPriorityParser {
     public RacingBikePriorityParser(EncodedValueLookup lookup) {
         this(lookup.getDecimalEncodedValue(VehiclePriority.key("racingbike")),
                 lookup.getDecimalEncodedValue(VehicleSpeed.key("racingbike")),
-                lookup.getEnumEncodedValue(BikeNetwork.KEY, RouteNetwork.class));
+                lookup.getEnumEncodedValue(BikeNetwork.KEY, RouteNetwork.class),
+                lookup.getEnumEncodedValue(RoadType.KEY, RoadType.class)
+        );
     }
 
     protected RacingBikePriorityParser(DecimalEncodedValue priorityEnc, DecimalEncodedValue speedEnc,
-                                       EnumEncodedValue<RouteNetwork> bikeRouteEnc) {
-        super(priorityEnc, speedEnc, bikeRouteEnc);
+                                       EnumEncodedValue<RouteNetwork> bikeRouteEnc, EnumEncodedValue<RoadType> roadTypeEnc) {
+        super(priorityEnc, speedEnc, bikeRouteEnc, roadTypeEnc);
 
         addPushingSection("path");
 

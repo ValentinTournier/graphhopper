@@ -105,9 +105,9 @@ public abstract class BikeCommonAverageSpeedParser extends AbstractAverageSpeedP
 
         setHighwaySpeed("cycleway", 14);
         setHighwaySpeed("path", 18);
-        setHighwaySpeed("footway", 10);
+        setHighwaySpeed("footway", 8);
         setHighwaySpeed("platform", PUSHING_SECTION_SPEED);
-        setHighwaySpeed("pedestrian", 11);
+        setHighwaySpeed("pedestrian", 9);
         setHighwaySpeed("track", 14);
         setHighwaySpeed("service", 14);
         setHighwaySpeed("residential", 12);
@@ -180,7 +180,7 @@ public abstract class BikeCommonAverageSpeedParser extends AbstractAverageSpeedP
     int getSpeed(ReaderWay way) {
         int speed = PUSHING_SECTION_SPEED;
         String highwayTag = way.getTag("highway");
-        Integer highwaySpeed = highwaySpeeds.get(highwayTag);
+        Integer highwaySpeed = highwaySpeeds.getOrDefault(highwayTag, 10);
         if (highwaySpeed != null){
             speed = highwaySpeed;
         }
